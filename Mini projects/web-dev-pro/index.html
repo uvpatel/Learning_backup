@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>pygame news</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .dont-break-out {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -ms-word-break: break-all;
+        /*        word-break: break-all;
+        word-break: break-word;
+*/
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+      }
+
+      /* Body */
+      .dark-theme {
+        background-color: #222;
+        color: rgb(221, 221, 221);
+      }
+
+      /* Navbar */
+      .dark-theme .navbar {
+        background-color: #333;
+        border-color: #080808;
+        color: #eee;
+        margin-bottom: 0;
+      }
+
+      .dark-theme .navbar-collapse {
+        border-color: #080808;
+      }
+
+      /* Navbar header */
+      .dark-theme .navbar-header {
+        color: #eee;
+      }
+
+      /* Buttons */
+      /* General Button Styling */
+      .dark-theme .btn {
+        background-color: #343a40;
+        border-color: #6c757d;
+        color: #fff;
+        transition: background-color 0.3s ease;
+        font-style: initial;
+      }
+
+      /* Primary Button Styling */
+      .dark-theme .btn-primary {
+        color: rgb(47, 253, 47);
+        border-color: rgb(47, 253, 47);
+        transition: background-color 0.3s ease;
+      }
+
+      /* Hover State Styling */
+      .dark-theme .btn:hover,
+      .dark-theme .btn:focus {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: #fff;
+      }
+
+      /* Active State Styling */
+      .dark-theme .btn:active,
+      .dark-theme .btn.active {
+        background-color: #32cd32;
+        border-color: #32cd32;
+        box-shadow: none;
+        font-style: initial;
+      }
+
+      /* Disabled State Styling */
+      .dark-theme .btn:disabled,
+      .dark-theme .btn[disabled] {
+        opacity: 0.65;
+      }
+
+      /* List groups */
+      .dark-theme .list-group {
+        background-color: #333;
+        border-color: #080808;
+        color: #eee;
+        margin-bottom: 20px;
+      }
+
+      .dark-theme .list-group-item {
+        background-color: #333;
+        border-color: #080808;
+        color: #eee;
+        font-style: initial;
+      }
+
+      .dark-theme .list-group-item:hover,
+      .dark-theme .list-group-item:focus {
+        background-color: #080808;
+        border-color: #080808;
+        color: #eee;
+      }
+
+      /* Panels */
+      .dark-theme .panel {
+        background-color: #f8f8f8;
+        border-color: #e7e7e7;
+        color: #333;
+      }
+
+      .dark-theme .panel-heading {
+        background-color: #e7e7e7;
+        border-color: #d3d3d3;
+        color: #333;
+      }
+
+      .dark-theme .panel-heading a {
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 700;
+        font-family: "Press Start 2P", "Helvetica Neue", Helvetica, Arial,
+          sans-serif;
+        font-style: initial;
+      }
+
+      @media screen and (min-width: 768px) {
+        .dark-theme .panel-heading a {
+          font-size: 30px;
+          line-height: 1;
+        }
+      }
+
+      .dark-theme .h1,
+      .dark-theme .h2,
+      .dark-theme .h3,
+      .dark-theme .h4,
+      .dark-theme .h5,
+      .dark-theme .h6,
+      .dark-theme h1,
+      .dark-theme h2,
+      .dark-theme h3,
+      .dark-theme h4,
+      .dark-theme h5,
+      .dark-theme h6 {
+        text-transform: uppercase;
+        font-family: "Press Start 2P";
+      }
+      .dark-theme .h1,
+      .dark-theme h1 {
+        text-shadow: -1px -1px 0 #0d2, 1px -1px 0 #000, -1px 1px 0 #000,
+          1px 1px 0 #000;
+      }
+
+      .dark-theme .panel-default {
+        border-color: #080808;
+        background-color: #222;
+        color: #eee;
+      }
+
+      .dark-theme .panel-default > .panel-heading {
+        border-color: #080808;
+        background-color: #080808;
+        color: #eee;
+      }
+
+      .dark-theme .panel-default > .panel-heading + .panel-body {
+        border-top-color: #080808;
+      }
+
+      .dark-theme .panel-body {
+        color: #eee;
+      }
+
+      /* Forms */
+      .dark-theme .form-control {
+        background-color: #fff;
+        border-color: #ccc;
+        color: #555;
+      }
+
+      .dark-theme .form-control:focus {
+        border-color: #6bbf59;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+          0 0 8px rgba(102, 175, 233, 0.6);
+      }
+
+      .dark-theme .form-group {
+        margin-bottom: 15px;
+      }
+
+      .dark-theme .form-label {
+        color: #ccc;
+      }
+
+      .dark-theme .form-group.has-error .form-control {
+        border-color: #a94442;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ebccd1;
+      }
+
+      .dark-theme .form-group.has-error .help-block {
+        color: #a94442;
+      }
+
+      /* Containers */
+      .dark-theme .container,
+      .dark-theme .container-fluid {
+        background-color: #222;
+        color: #eee;
+      }
+
+      /* Badges */
+      .dark-theme .badge {
+        background-color: #555;
+        color: #fff;
+      }
+
+      /* Footer */
+      .dark-theme footer {
+        background-color: #222;
+        color: #eee;
+        padding: 10px;
+      }
+
+      /* Dropdowns */
+      .dark-theme .dropdown-menu {
+        background-color: #222;
+        border-color: #080808;
+        color: #eee;
+      }
+
+      .dark-theme .dropdown-menu > li > a {
+        color: #eee;
+      }
+
+      .dark-theme .dropdown-menu > li > a:hover,
+      .dark-theme .dropdown-menu > li > a:focus {
+        background-color: #080808;
+        color: #eee;
+      }
+
+      .dark-theme .dropdown-menu > li > a:focus {
+        outline: none;
+      }
+
+      .dark-theme .dropdown-menu > .active > a,
+      .dark-theme .dropdown-menu > .active > a:hover,
+      .dark-theme .dropdown-menu > .active > a:focus {
+        background-color: #080808;
+        color: #eee;
+        font-style: initial;
+      }
+
+      .dark-theme .dropdown-header {
+        color: #aaa;
+      }
+
+      .dark-theme .dropdown-backdrop {
+        background-color: #000;
+        opacity: 0.5;
+      }
+
+      .dark-theme .open > .dropdown-toggle {
+        background-color: #080808;
+        color: #eee;
+        border-color: #080808;
+      }
+
+      .dark-theme .open > .dropdown-toggle:hover,
+      .dark-theme .open > .dropdown-toggle:focus,
+      .dark-theme .open > .dropdown-toggle:active {
+        background-color: #080808;
+        color: rgb(133, 255, 133);
+        border-color: #080808;
+      }
+
+      .dark-theme .navbar-default .navbar-nav > li > a {
+        color: #fff;
+        font-style: initial;
+      }
+      .dark-theme .navbar-default .navbar-nav > li > a:hover,
+      .dark-theme .navbar-default .navbar-nav > li > a:focus {
+        color: rgb(133, 255, 133);
+      }
+
+      /* Navbar Dropdown */
+      .dark-theme .navbar-default .navbar-nav > .open > a,
+      .dark-theme .navbar-default .navbar-nav > .open > a:focus,
+      .dark-theme .navbar-default .navbar-nav > .open > a:hover {
+        color: rgb(133, 255, 133);
+        background-color: #080808;
+        font-style: initial;
+      }
+
+      .dark-theme .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        background-color: #080808;
+        color: #eee;
+        font-style: initial;
+      }
+      .dark-theme
+        .navbar-default
+        .navbar-nav
+        .open
+        .dropdown-menu
+        > li
+        > a:hover {
+        color: rgb(133, 255, 133);
+        background-color: #080808;
+        font-style: initial;
+      }
+
+      .dark-theme pre {
+        background-color: #000;
+        color: #eee;
+      }
+
+      /* Modals */
+      .dark-theme .modal-content {
+        background-color: #292b2c;
+        color: #fff;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+
+      .dark-theme .modal-header {
+        background-color: #222;
+        border-bottom: 1px solid #080808;
+        color: #fff;
+      }
+
+      .dark-theme .modal-title {
+        color: #fff;
+      }
+
+      .dark-theme .modal-body {
+        color: #fff;
+      }
+
+      .dark-theme .modal-footer {
+        background-color: #222;
+        border-top: 1px solid #080808;
+      }
+
+      /* Modal Header */
+      .dark-theme button.close,
+      .dark-theme .modal-header .close {
+        color: #fff;
+        opacity: 1;
+        text-shadow: none;
+      }
+
+      .dark-theme button.close:hover,
+      .dark-theme .modal-header .close:hover,
+      .dark-theme button.close:focus,
+      .dark-theme .modal-header .close:focus {
+        color: #fff;
+        opacity: 0.5;
+        text-shadow: none;
+      }
+
+      .dark-theme .modal-header .close:hover span,
+      .dark-theme .modal-header .close:focus span {
+        text-decoration: none;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      .dark-theme a {
+        color: rgb(47, 253, 47);
+        /* text-shadow: 1px 1px 1px rgba(0, 255, 0, 0.1); */
+        font-style: oblique;
+      }
+
+      .dark-theme a:hover,
+      .dark-theme a:focus,
+      .dark-theme a:active {
+        color: rgb(133, 255, 133);
+      }
+
+      /* input */
+
+      .dark-theme input[type="text"],
+      .dark-theme input[type="password"],
+      .dark-theme input[type="email"],
+      .dark-theme input[type="url"],
+      .dark-theme input[type="tel"],
+      .dark-theme input[type="number"],
+      .dark-theme input[type="search"],
+      .dark-theme input[type="date"],
+      .dark-theme input[type="month"],
+      .dark-theme input[type="week"],
+      .dark-theme input[type="time"],
+      .dark-theme input[type="datetime"],
+      .dark-theme input[type="datetime-local"],
+      .dark-theme input[type="color"],
+      .dark-theme input[type="submit"],
+      .dark-theme select,
+      .dark-theme textarea {
+        background-color: #fff;
+        border-color: #ccc;
+        color: #555;
+      }
+
+      /**
+ *  Underline on hover.
+ *  - .underline-on-hover part that is hovered.
+ *  - .underline-on-hover-underline is the underlined part.
+ */
+      .underline-on-hover:hover .underline-on-hover-underline::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      .underline-on-hover-underline {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 3px;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .underline-on-hover-underline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #337ab7;
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition: transform 0.8s ease-in-out;
+      }
+      .dark-theme .underline-on-hover-underline::before {
+        background-color: rgb(47, 253, 47);
+      }
+    </style>
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="pygame.org news (ATOM feed)"
+      href="http://www.pygame.org/feed/news.php?format=ATOM"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="pygame.org news (RSS 2.0 feed)"
+      href="http://www.pygame.org/feed/news.php?format=RSS2.0"
+    />
+  </head>
+  <body class="dark-theme">
+    <a href="#content" class="sr-only sr-only-focusable"
+      >Skip to main content</a
+    >
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button
+            aria-controls="navbar"
+            aria-expanded="false"
+            class="navbar-toggle collapsed"
+            data-target="#d8ca2d955ec8b7cc1529da094d2ce3f62a957e9d"
+            data-toggle="collapse"
+            type="button"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span
+            class="navbar-left hidden-xs"
+            style="max-width: 100px; margin-top: 18px; margin-right: 4px"
+            >pip install</span
+          >
+          <a class="navbar-left" href="/news" title="pygame">
+            <img
+              alt="pygame logo"
+              src="/images/logo_lofi.png"
+              style="max-width: 100px; margin-top: 10px"
+            />
+          </a>
+        </div>
+        <div
+          class="navbar-collapse collapse"
+          id="d8ca2d955ec8b7cc1529da094d2ce3f62a957e9d"
+        >
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                role="button"
+                >Projects
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/tags/all">Projects</a>
+                </li>
+                <li>
+                  <a href="/screenshots.html">Screenshots</a>
+                </li>
+                <li>
+                  <a href="/comments/pygame">Project Comments</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/news.html">News</a>
+            </li>
+            <li>
+              <a href="/wiki/about">About</a>
+            </li>
+            <li>
+              <a href="/wiki/GettingStarted">Getting Started</a>
+            </li>
+            <li>
+              <a href="/docs">Docs</a>
+            </li>
+            <li class="dropdown">
+              <a
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                role="button"
+                >Info
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/wiki/tutorials">Tutorials</a>
+                </li>
+                <li>
+                  <a href="/wiki/FrequentlyAskedQuestions">Pygame FAQ</a>
+                </li>
+                <li>
+                  <a href="/wiki/info">Help (irc, lists)</a>
+                </li>
+                <li>
+                  <a href="/wiki/links">Links</a>
+                </li>
+                <li>
+                  <a href="/whatsnew.shtml">What's New</a>
+                </li>
+                <li>
+                  <a href="/wiki/">Wiki</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="#"
+                role="button"
+                >Development
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/wiki/patchesandbugs">Bugs &amp; Patches</a>
+                </li>
+                <li>
+                  <a href="https://github.com/pygame/"
+                    >pygame github organisation</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" id="content">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1>
+                News
+                <button
+                  type="button"
+                  class="btn btn-primary pull-right"
+                  data-toggle="modal"
+                  data-target=".bs-example-modal-lg"
+                >
+                  New here?
+                </button>
+              </h1>
+
+              <div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a href="/news/2024/6/pygame-2-6-0">
+                        pygame 2.6.0 &mdash; 25 Jun, 2024
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <pre>python3 -m pip install -U pygame==2.6.0</pre>
+
+                    Read the
+                    <a
+                      href="https://github.com/pygame/pygame/releases/tag/2.6.0"
+                      >release notes</a
+                    >
+                    to find out what changed.
+
+                    <br /><br />
+                    <p>
+                      Please file an issue if you notice a problem:<br />
+                      <a href="https://github.com/pygame/pygame/issues"
+                        >https://github.com/pygame/pygame/issues</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a
+                        href="/news/2023/9/pygame-2-5-2-yet-another-bug-fix-release"
+                      >
+                        pygame 2.5.2 - 🦋 yet another bug fix release🍄 &mdash;
+                        18 Sep, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <pre>python -m pip install -U pygame==2.5.2 --user</pre>
+
+                    Read the
+                    <a
+                      href="https://github.com/pygame/pygame/releases/tag/2.5.2"
+                      >release notes</a
+                    >
+                    to find out what changed.
+
+                    <br /><br />
+                    <p>
+                      Please file an issue if you notice a problem:<br />
+                      <a href="https://github.com/pygame/pygame/issues"
+                        >https://github.com/pygame/pygame/issues</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a
+                        href="/news/2023/8/pygame-2-5-1-more-delicious-and-equal-amounts-of-weird"
+                      >
+                        pygame 2.5.1 - 🦋 more delicious, and equal amounts of
+                        weird 🍄 &mdash; 18 Aug, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <pre>python -m pip install -U pygame==2.5.1 --user</pre>
+
+                    Read the
+                    <a
+                      href="https://github.com/pygame/pygame/releases/tag/2.5.1"
+                      >release notes</a
+                    >
+                    to find out what changed.
+
+                    <br /><br />
+                    <p>
+                      Please file an issue if you notice a problem:<br />
+                      <a href="https://github.com/pygame/pygame/issues"
+                        >https://github.com/pygame/pygame/issues</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a href="/news/2023/7/pygame-2-5-0-delicious-but-a-weird">
+                        pygame 2.5.0 - 🦋 delicious but a weird 🍄 &mdash; 24
+                        Jun, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <pre>python -m pip install -U pygame==2.5.0 --user</pre>
+
+                    Read the
+                    <a
+                      href="https://github.com/pygame/pygame/releases/tag/2.5.0"
+                      >release notes</a
+                    >
+                    to find out what changed.
+
+                    <br /><br />
+                    <p>
+                      Please file an issue if you notice a problem:<br />
+                      <a href="https://github.com/pygame/pygame/issues"
+                        >https://github.com/pygame/pygame/issues</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a href="/news/2023/5/pygame-2-4-0">
+                        pygame 2.4.0 - 👟⚽ &mdash; 6 May, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <pre>python -m pip install -U pygame==2.4.0 --user</pre>
+
+                    <a
+                      href="https://github.com/pygame/pygame/releases/tag/2.4.0"
+                      >release notes</a
+                    >
+
+                    <br /><br />
+                    <p>
+                      Please file an issue if you notice a problem:<br />
+                      <a href="https://github.com/pygame/pygame/issues"
+                        >https://github.com/pygame/pygame/issues</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a
+                        href="/news/2023/3/pygames-hackathon-pyweek-and-ludum-dare-game-jams"
+                      >
+                        pygames hackathon, PyWeek, and Ludum Dare game jams.
+                        &mdash; 23 Mar, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <p>
+                      Over the next weeks we have plenty of game jams that
+                      people from the pygame communities take part in.
+                    </p>
+
+                    <p>
+                      The
+                      <a href="https://pygames.devpost.com/"
+                        >pygames hackathon</a
+                      >
+                      runs from <b>March 20th, 2023 to April 17th 2023</b>, and
+                      is open to people in USA and Canada. For this one there's
+                      $12,700 in prizes. "If you love programming and gaming,
+                      this is the perfect opportunity to showcase your skills
+                      and have some fun!"
+                    </p>
+
+                    <p>
+                      Then the must-use-python
+                      <a href="https://pyweek.org/35/">PyWeek challenge</a>
+                      "Invites entrants to write a game in <b>one week</b> from
+                      scratch either as an individual or in a team. Is intended
+                      to be challenging and fun. Will hopefully increase the
+                      public body of python game tools, code and expertise. Will
+                      let a lot of people actually finish a game, and may
+                      inspire new projects (with ready made teams!)." PyWeek
+                      runs from <b>March 26nd, 2023 to April 2nd 2023</b>, and
+                      theme voting is already on.
+                    </p>
+
+                    <p>
+                      Finally, <a href="https://ldjam.com/">Ludum Dare</a> is an
+                      event where you create a game
+                      <b>from scratch in a weekend</b> based on a theme.
+                      <b>April 28th, 2023</b>. Starts at 3:00 AM CEST *.
+                      Ludumdare is the oldest online game jam, and has the
+                      largest number of participants. There is a Jam (72h, less
+                      restrictive rules), and a compo (48h
+                      <a href="https://ldjam.com/events/ludum-dare/rules"
+                        >more rules</a
+                      >). The Jam now lets people submit paper board games, and
+                      even things like crafts that aren't games at all!
+                    </p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a href="/news/2023/3/pygame-2-3-0">
+                        pygame 2.3.0 - 🌸 &mdash; 14 Mar, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <pre>python -m pip install -U pygame==2.3.0 --user</pre>
+
+                    <a
+                      href="https://github.com/pygame/pygame/releases/tag/2.3.0"
+                      >release notes</a
+                    >
+
+                    <br /><br />
+                    <p>
+                      Please file an issue if you notice a problem:<br />
+                      <a href="https://github.com/pygame/pygame/issues"
+                        >https://github.com/pygame/pygame/issues</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a href="/news/2023/2/pygame-2-2-0">
+                        pygame 2.2.0 - 💀 &mdash; 28 Feb, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <pre>python -m pip install -U pygame==2.2.0 --user</pre>
+
+                    <a
+                      href="https://github.com/pygame/pygame/releases/tag/2.2.0"
+                      >release notes</a
+                    >
+
+                    <br /><br />
+                    <p>
+                      Please file an issue if you notice a problem:<br />
+                      <a href="https://github.com/pygame/pygame/issues"
+                        >https://github.com/pygame/pygame/issues</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a href="/news/2023/2/pygame-2-1-3-make-it-count">
+                        pygame 2.1.3 - make it count &mdash; 14 Feb, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    <pre>python -m pip install -U pygame==2.1.3 --user</pre>
+
+                    <a
+                      href="https://github.com/pygame/pygame/releases/tag/2.1.3"
+                      >release notes</a
+                    >
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <b>
+                      <a href="/news/2023/2/spanish-translation-update">
+                        Spanish translation update &mdash; 3 Feb, 2023
+                      </a>
+                    </b>
+                  </div>
+                  <div class="panel-body dont-break-out">
+                    We are making progress on the Spanish translation of pygame
+                    materials. Estefania (who is also a teacher) has in addition
+                    been providing feedback on the English versions of
+                    documents. The workflow is still improving, and we hope to
+                    make progress on fine tuning this process as we go through
+                    more of the Spanish translations.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal fade bs-example-modal-lg"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="myLargeModalLabel"
+          >
+            <div
+              class="modal-dialog modal-lg"
+              role="document"
+              style="max-width: 600px"
+            >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title">Hello Internet traveller,</h4>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    welcome to our humble (and slightly strange) little part of
+                    the World Wide Web. Let me give you a quick introduction
+                    about what you've stumbled upon here.
+                  </p>
+
+                  <p>
+                    pygame (the library) is a Free and Open Source
+                    <a href="https://www.python.org/">python</a> programming
+                    language library for making multimedia applications like
+                    games.
+                  </p>
+
+                  <p>
+                    pygame.org (the website) welcomes all Python game, art,
+                    music, sound, video and multimedia projects. Once you have
+                    finished
+                    <a href="/wiki/GettingStarted">getting started</a> you could
+                    <a href="/members/projects/new">add a new project</a> or
+                    learn <a href="/wiki/about">about</a> pygame by reading the
+                    <a href="/docs/">docs</a>. For more information on what is
+                    happening in the pygame world see the
+                    <a href="/dashboard">community dashboard</a> web page, which
+                    lists many things like our projects we are working on, news
+                    (our blog with rss),
+                    <a href="https://twitter.com/pygame_org">twitter</a>,
+                    <a href="https://www.reddit.com/r/pygame">reddit</a>
+                    (forum),
+                    <a href="http://stackoverflow.com/questions/tagged/pygame"
+                      >stackoverflow</a
+                    >
+                    (Q&amp;A),
+                    <a href="https://bitbucket.org/pygame/pygame/">Bitbucket</a>
+                    (development),
+                    <a href="irc://irc.freenode.net/pygame">irc</a>(chat),
+                    <a href="/wiki/info">mailinglist</a> (we love writing
+                    electronic mail to each other) and other various bits and
+                    pieces about pygame from around the internets.
+                  </p>
+
+                  <p>
+                    pygame (the community) is a small volunteer group of
+                    creative humans who &#9829; making things (there may also be
+                    a few cats, several koalas, dozens of doggos, 3.14 gnomes,
+                    and 42 robots who also tinker amongst us). We respect each
+                    other, and follow the
+                    <a href="https://www.python.org/psf/codeofconduct/"
+                      >Python community code of conduct</a
+                    >, whilst we help each other make interesting things.
+                  </p>
+
+                  <p>
+                    Enjoy yourself whilst looking around. We look forward to
+                    your creations.
+                  </p>
+
+                  <p>
+                    <br />Best humanly possible wishes and extra toasty warm
+                    regards,<br />pygame
+                  </p>
+
+                  <p>
+                    <small
+                      >ps. We spell colour without the u (sorry), and we always
+                      spell pygame with lower case letters. Also, please do
+                      excuse the mess - we're doing some renovations around here
+                      you see.</small
+                    >
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/.col-xs-12.col-sm-9-->
+        <div class="col-xs-12 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a class="list-group-item" href="https://www.pygame.org/register"
+              >New members signup</a
+            >
+            <a class="list-group-item" href="https://www.pygame.org/login"
+              >Log In</a
+            >
+          </div>
+
+          <style>
+            .project-title {
+              bottom: 10px;
+            }
+            .project-releases .list-group-item {
+              min-height: 68px;
+            }
+            .project-releases span {
+              position: absolute;
+              background: rgba(255, 255, 255, 0.7);
+              padding: 2px 4px;
+            }
+
+            .dark-theme .project-title {
+              bottom: 10px;
+              color: #fff;
+            }
+            .dark-theme .project-releases .list-group-item {
+              min-height: 68px;
+              background-color: #444;
+              border-color: #333;
+            }
+            .dark-theme .project-releases .list-group-item a {
+              font-style: initial;
+            }
+            .dark-theme .project-releases span {
+              position: absolute;
+              background-color: rgba(255, 255, 255, 0.7);
+              padding: 2px 4px;
+              color: #333;
+            }
+          </style>
+
+          <h2>Recent Releases</h2>
+          <div class="list-group project-releases">
+            <a
+              href="/project/5666/8258"
+              class="list-group-item underline-on-hover"
+              title="A pacman clone made with python and pygame"
+            >
+              <span class="project-released"> 23 Jan, 2025 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/f4ad48699fc63a04bf1807cc9a571343.png"
+                alt="A pacman clone made with python and pygame"
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                Pacman clone - 1.0
+              </span>
+            </a>
+            <a
+              href="/project/3973/8257"
+              class="list-group-item underline-on-hover"
+              title="a multiplayer using tcp/ip sockets"
+            >
+              <span class="project-released"> 6 Jan, 2025 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/5dbf151ef8661dc5a53c7c8bf0cee7b3.png"
+                alt="a multiplayer using tcp/ip sockets"
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                BattleTanks - 2.0
+              </span>
+            </a>
+            <a
+              href="/project/4586/8256"
+              class="list-group-item underline-on-hover"
+              title="Full-featured game console based on pygame that can be integrated in your python game in order to execute python command/scripts/custom in-gamefunctions"
+            >
+              <span class="project-released"> 29 Nov, 2024 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/e59b8212cc7124061b17762d4e7459ac.png"
+                alt="Full-featured game console based on pygame that can be integrated in your python game in order to execute python command/scripts/custom in-gamefunctions"
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                Pygame Game Console - 2.0
+              </span>
+            </a>
+            <a
+              href="/project/5665/8255"
+              class="list-group-item underline-on-hover"
+              title="dice + plinko "
+            >
+              <span class="project-released"> 14 Nov, 2024 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/3b5469bcd0748b7d12966e5561d2c360.png"
+                alt="dice + plinko "
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                Diechinko - .01
+              </span>
+            </a>
+            <a
+              href="/project/5664/8254"
+              class="list-group-item underline-on-hover"
+              title="I don&#39;t see many use pygame for purposes other than game development so here it is with another example. Elden RIng fan videos and game made using pure pygame and python."
+            >
+              <span class="project-released"> 13 Nov, 2024 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/227c699844d17d0b125f9c40c722b03a.png"
+                alt="I don&#39;t see many use pygame for purposes other than game development so here it is with another example. Elden RIng fan videos and game made using pure pygame and python."
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                Pygame for animated story - 1
+              </span>
+            </a>
+            <a
+              href="/project/5157/8253"
+              class="list-group-item underline-on-hover"
+              title="A usable pixel art program written in Python"
+            >
+              <span class="project-released"> 12 Sep, 2024 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/f164bc95f7be5394e1cc9826ecfc35d5.png"
+                alt="A usable pixel art program written in Python"
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                PyDPainter - Release 2.0.1
+              </span>
+            </a>
+            <a
+              href="/project/5663/8251"
+              class="list-group-item underline-on-hover"
+              title="Real-time strategy game set in a fantasy world."
+            >
+              <span class="project-released"> 8 Aug, 2024 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/f81c762299b2f1bf6d6af95a83b957a7.png"
+                alt="Real-time strategy game set in a fantasy world."
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                Campaigns of Fantasy - 14
+              </span>
+            </a>
+            <a
+              href="/project/5662/8238"
+              class="list-group-item underline-on-hover"
+              title="🏰💨 Zanthor is a game where you play an evil robot castle which is powered by steam."
+            >
+              <span class="project-released"> 27 Jul, 2024 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/2aa120f30d58403c5607fe9fc5e65a3e.png"
+                alt="🏰💨 Zanthor is a game where you play an evil robot castle which is powered by steam."
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                Zanthor - 1.2.4
+              </span>
+            </a>
+            <a
+              href="/project/5660/8237"
+              class="list-group-item underline-on-hover"
+              title="【Imperial Ambitions 3K】is a Three-Kingdoms-themed, turn-based strategy game written in Python. The current version features 8 playable factions, 25 unit types, 100+ recruitable generals with 100+ special attacks/skills, and a full campaign with diplomacy options, tech trees, and more!"
+            >
+              <span class="project-released"> 14 Jul, 2024 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/a00db8aa7556a8ad1e4e216825a0935e.png"
+                alt="【Imperial Ambitions 3K】is a Three-Kingdoms-themed, turn-based strategy game written in Python. The current version features 8 playable factions, 25 unit types, 100+ recruitable generals with 100+ special attacks/skills, and a full campaign with diplomacy options, tech trees, and more!"
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+                style="position: inherit; bottom: auto"
+              >
+                Imperial Ambitions - Three Kingdoms - Beta 1.0
+              </span>
+            </a>
+            <a
+              href="/project/5656/8236"
+              class="list-group-item underline-on-hover"
+              title="Side-scrolling medieval fantasy action game in the art style inspired by Medieval art from various period and regions (with a sprinkle of education elements for historical medieval period) made with Pygame."
+            >
+              <span class="project-released"> 11 Jul, 2024 </span>
+              <img
+                class="img-responsive"
+                src="/thumb/db653d4809dfe59e40c35dbe7dd1d035.png"
+                alt="Side-scrolling medieval fantasy action game in the art style inspired by Medieval art from various period and regions (with a sprinkle of education elements for historical medieval period) made with Pygame."
+              />
+              <span
+                class="project-title dont-break-out underline-on-hover-underline"
+              >
+                Royal Ordains - 0.2
+              </span>
+            </a>
+          </div>
+
+          <div>
+            <a href="/tags/pygame" class="btn btn-default" role="button"
+              >pygame <span class="badge">844</span></a
+            >
+            <a href="/tags/2d" class="btn btn-default" role="button"
+              >2d <span class="badge">783</span></a
+            >
+            <a href="/tags/arcade" class="btn btn-default" role="button"
+              >arcade <span class="badge">744</span></a
+            >
+            <a href="/tags/game" class="btn btn-default" role="button"
+              >game <span class="badge">397</span></a
+            >
+            <a href="/tags/python" class="btn btn-default" role="button"
+              >python <span class="badge">342</span></a
+            >
+            <a href="/tags/puzzle" class="btn btn-default" role="button"
+              >puzzle <span class="badge">341</span></a
+            >
+            <a href="/tags/shooter" class="btn btn-default" role="button"
+              >shooter <span class="badge">268</span></a
+            >
+            <a href="/tags/strategy" class="btn btn-default" role="button"
+              >strategy <span class="badge">257</span></a
+            >
+            <a href="/tags/action" class="btn btn-default" role="button"
+              >action <span class="badge">222</span></a
+            >
+            <a href="/tags/space" class="btn btn-default" role="button"
+              >space <span class="badge">153</span></a
+            >
+            <a href="/tags/other" class="btn btn-default" role="button"
+              >other <span class="badge">152</span></a
+            >
+            <a href="/tags/libraries" class="btn btn-default" role="button"
+              >libraries <span class="badge">151</span></a
+            >
+            <a href="/tags/simple" class="btn btn-default" role="button"
+              >simple <span class="badge">143</span></a
+            >
+            <a href="/tags/platformer" class="btn btn-default" role="button"
+              >platformer <span class="badge">138</span></a
+            >
+            <a href="/tags/multiplayer" class="btn btn-default" role="button"
+              >multiplayer <span class="badge">127</span></a
+            >
+            <a href="/tags/rpg" class="btn btn-default" role="button"
+              >rpg <span class="badge">118</span></a
+            >
+            <a href="/tags/retro" class="btn btn-default" role="button"
+              >retro <span class="badge">98</span></a
+            >
+            <a href="/tags/applications" class="btn btn-default" role="button"
+              >applications <span class="badge">93</span></a
+            >
+            <a href="/tags/3d" class="btn btn-default" role="button"
+              >3d <span class="badge">87</span></a
+            >
+            <a href="/tags/gpl" class="btn btn-default" role="button"
+              >gpl <span class="badge">82</span></a
+            >
+            <a href="/tags/pyopengl" class="btn btn-default" role="button"
+              >pyopengl <span class="badge">74</span></a
+            >
+            <a href="/tags/snake" class="btn btn-default" role="button"
+              >snake <span class="badge">72</span></a
+            >
+            <a href="/tags/pyweek" class="btn btn-default" role="button"
+              >pyweek <span class="badge">71</span></a
+            >
+            <a href="/tags/geometrian" class="btn btn-default" role="button"
+              >geometrian <span class="badge">68</span></a
+            >
+            <a href="/tags/library" class="btn btn-default" role="button"
+              >library <span class="badge">66</span></a
+            >
+            <a href="/tags/gui" class="btn btn-default" role="button"
+              >gui <span class="badge">63</span></a
+            >
+            <a href="/tags/physics" class="btn btn-default" role="button"
+              >physics <span class="badge">62</span></a
+            >
+            <a href="/tags/engine" class="btn btn-default" role="button"
+              >engine <span class="badge">59</span></a
+            >
+            <a href="/tags/simulation" class="btn btn-default" role="button"
+              >simulation <span class="badge">55</span></a
+            >
+            <a href="/tags/adventure" class="btn btn-default" role="button"
+              >adventure <span class="badge">52</span></a
+            >
+            <br /><br />
+            <a href="/tags" class="btn btn-default" role="button"
+              >ALL the tags!</a
+            >
+          </div>
+        </div>
+        <!--/.sidebar-offcanvas-->
+      </div>
+      <!--/row-->
+      <hr />
+      <footer>
+        <p></p>
+      </footer>
+    </div>
+    <!--/.container-->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

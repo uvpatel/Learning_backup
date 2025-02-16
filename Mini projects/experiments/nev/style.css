@@ -1,0 +1,18 @@
+body{
+    background-color: black;
+    color: white;
+}
+nav div ul{
+    color: white;
+    display: flex;
+    box-sizing: border-box;
+    list-style-type: none;
+    margin:auto;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+li{
+padding: 10;
+outline: white solid  1px ;
+}
