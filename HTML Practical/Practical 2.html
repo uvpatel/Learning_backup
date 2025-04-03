@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timetable</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .header {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      .header td {
+        border: 2px solid black;
+        text-align: center;
+        padding: 5px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid black;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 5px;
+      }
+      th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+      }
+      td[colspan] {
+        background-color: #e6e6e6;
+        font-weight: bold;
+      }
+      .course-code-section {
+        margin-top: 20px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="header">
+      <tr>
+        <td rowspan="2">
+          <img
+            src="bvm-logo-1.png"
+            alt="BVM Logo"
+            style="width: 80px; height: auto"
+          />
+        </td>
+        <td>
+          <b>BIRLA VISHVAKARMA MAHAVIDYALAYA</b><br />(ENGINEERING COLLEGE)
+        </td>
+        <td rowspan="2"><b>TIME TABLE</b><br />EVEN, A.Y.: 2024-2025</td>
+      </tr>
+      <tr>
+        <td>(AN AUTONOMOUS INSTITUTION) VALLABH VIDYANAGAR</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <b
+            >DISCIPLINE: B. TECH. COMPUTER ENGINEERING, SEMESTER: 2, DIVISION:
+            12</b
+          >
+        </td>
+      </tr>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th>TIME</th>
+          <th>MONDAY</th>
+          <th>TUESDAY</th>
+          <th>WEDNESDAY</th>
+          <th>THURSDAY</th>
+          <th>FRIDAY</th>
+          <th>SATURDAY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10:30 - 11:25</td>
+          <td>103BS - A12 (P)</td>
+          <td>103BS - A12 (P)</td>
+          <td>103BS - C12 (P)</td>
+          <td>121HS - HK</td>
+          <td>102ES - MEV-1 (A221)</td>
+          <td>113ES - C12 (P) (E406)</td>
+        </tr>
+        <tr>
+          <td>11:30 - 12:25</td>
+          <td>102ES - D12 (P)</td>
+          <td>HMP (F411)</td>
+          <td>CP-3 (F409)</td>
+          <td>103BS - D12 (P)</td>
+          <td>102ES - MEV-1 (A221)</td>
+          <td>102ES - MEV-1 (B206)</td>
+        </tr>
+        <tr>
+          <td>12:30 - 01:25</td>
+          <td>105BS - P12 (T)<br />DRP (A201)</td>
+          <td>113ES - MMK (A221)</td>
+          <td>123ES - UBG (A221)</td>
+          <td>SDB (A201)</td>
+          <td>123ES - UBG (A221)</td>
+          <td>105BS - ANR (A221)</td>
+        </tr>
+        <tr>
+          <td colspan="7">RECESS</td>
+        </tr>
+        <tr>
+          <td>02:00 - 02:55</td>
+          <td>102ES - MEV-1 (A221)</td>
+          <td>105BS - ANR (A221)</td>
+          <td>113ES - MMK (A221)</td>
+          <td>113ES - D12 (P)<br />MMK (F406)</td>
+          <td>123ES - D12 (P) UBG (B206)</td>
+          <td>S.B.A</td>
+        </tr>
+        <tr>
+          <td>03:00 - 03:55</td>
+          <td>123ES - UBG (A221)</td>
+          <td>123ES - UBG (A221)</td>
+          <td>113ES - MMK (A221)</td>
+          <td>123ES - D12 (P)</td>
+          <td>CP-1 (F106A)</td>
+          <td>105BS - ANR (A221)</td>
+        </tr>
+        <tr>
+          <td>04:00 - 04:55</td>
+          <td>105BS - Q12 (T)<br />NCS (A201)</td>
+          <td>113ES - D12 (P)</td>
+          <td>MMK (F406)</td>
+          <td>123ES - C12 (P)<br />CP-1 (B206)</td>
+          <td>CP-1 (B206)</td>
+          <td>123ES - C12 (P)</td>
+        </tr>
+        <tr>
+          <td>05:00 - 05:55</td>
+          <td>NCS (A201)</td>
+          <td>123ES - D12 (P)</td>
+          <td>CP-1 (B206)</td>
+          <td>113ES - MMK (A221)</td>
+          <td>S.B.A</td>
+          <td>S.B.A</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="course-code-section">
+      <table>
+        <thead>
+          <tr>
+            <th>COURSE CODE</th>
+            <th>COURSE TITLE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>101PW</td>
+            <td>SEMINAR</td>
+          </tr>
+          <tr>
+            <td>102ES</td>
+            <td>ENGINEERING GRAPHICS AND DESIGN</td>
+          </tr>
+          <tr>
+            <td>103SB</td>
+            <td>COMPUTER WORKSHOP - II</td>
+          </tr>
+          <tr>
+            <td>105BS</td>
+            <td>MATHEMATICS - II</td>
+          </tr>
+          <tr>
+            <td>113ES</td>
+            <td>BASIC ELECTRONICS</td>
+          </tr>
+          <tr>
+            <td>121HS</td>
+            <td>ENVIRONMENTAL SCIENCE</td>
+          </tr>
+          <tr>
+            <td>123ES</td>
+            <td>PROGRAMMING FOR PROBLEM SOLVING USING C</td>
+          </tr>
+          <tr>
+            <td>S.B.A</td>
+            <td>SWACHH BHARAT ABHIYAN</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
